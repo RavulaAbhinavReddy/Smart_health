@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Health and Wellness Monitoring System</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #e8eff5;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        header {
+            width: 100%;
+            padding: 20px;
+            background-color: #3d4c63;
+            color: #ffffff;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px 0;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            color: #3d4c63;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #ffffff;
+            border: 2px solid #3d4c63;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-links a:hover {
+            background-color: #3d4c63;
+            color: #ffffff;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .auth-buttons a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #2b394d;
+            border: 2px solid #2b394d;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .auth-buttons a:hover {
+            background-color: #ffffff;
+            color: #2b394d;
+            border-color: #3d4c63;
+        }
+
+        .content {
+            margin: 30px;
+            max-width: 900px;
+            text-align: left;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #2b394d;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #5b5b5b;
+            line-height: 1.6;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+            justify-content: space-between;
+        }
+
+        .feature-box {
+            flex: 1 1 calc(45% - 20px);
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #486381;
+            color: #ffffff;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-box h3 {
+            margin-bottom: 10px;
+            color: #ffffff;
+            font-size: 1.5em;
+        }
+
+        .feature-box p {
+            color: #e8eff5;
+        }
+
+        .feature-box:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: 40px;
+            color: #5b5b5b;
+            font-size: 0.9em;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>Smart Health and Wellness Monitoring System</header>
+
+    <div class="navbar">
+        <div class="navbar-links">
+            <!-- Use Django URL templates to link to pages dynamically -->
+            <a href="{% url 'wellnesstracking' %}">Track Health</a>
+            <a href="{% url 'healthinsights' %}">Insights</a>
+            <a href="#goals">Goals</a>
+            <a href="#dashboard">Dashboard</a>
+        </div>
+        <div class="auth-buttons">
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'registration' %}">Register</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Welcome to Your Wellness Dashboard</h2>
+        <p>
+            Monitor your health metrics, set wellness goals, and gain insights to lead a healthier life.
+            Our system syncs with wearable devices to provide real-time tracking and personalized recommendations.
+        </p>
+
+        <div class="features">
+            <div class="feature-box" id="track">
+                <h3>Track Health</h3>
+                <p>Keep an eye on your vital signs and physical activity in real-time.</p>
+            </div>
+            <div class="feature-box" id="insights">
+                <h3>Health Insights</h3>
+                <p>Receive personalized health insights and trend analysis to stay on track.</p>
+            </div>
+            <div class="feature-box" id="goals">
+                <h3>Set Goals</h3>
+                <p>Define wellness goals and track your progress towards achieving them.</p>
+            </div>
+            <div class="feature-box" id="dashboard">
+                <h3>Dashboard</h3>
+                <p>Visualize your health metrics with easy-to-understand charts and graphs.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>&copy; 2024 Smart Health and Wellness Monitoring System. All rights reserved.</footer>
+</body>
+</html>

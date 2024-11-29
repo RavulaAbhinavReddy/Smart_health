@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Tracking</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #e8eff5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3d4c63;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .error-message {
+            color: #f44336;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #3d4c63;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2b394d;
+        }
+
+        .wellness-history {
+            margin-top: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #3d4c63;
+            color: #fff;
+        }
+
+        table td {
+            background-color: #f9f9f9;
+        }
+
+        .no-data {
+            text-align: center;
+            color: #5b5b5b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Wellness Tracking</h1>
+
+        <!-- Error Message (if any) -->
+        <div class="error-message" id="error-message"></div>
+
+        <!-- Wellness Data Form -->
+        <form id="wellness-form">
+            <div class="input-group">
+                <label for="steps">Steps Taken</label>
+                <input type="number" id="steps" name="steps" required>
+            </div>
+            <div class="input-group">
+                <label for="heart_rate">Heart Rate (bpm)</label>
+                <input type="number" id="heart_rate" name="heart_rate" required>
+            </div>
+            <div class="input-group">
+                <label for="sleep_hours">Sleep Hours</label>
+                <input type="number" step="0.1" id="sleep_hours" name="sleep_hours" required>
+            </div>
+            <button type="submit">Save Data</button>
+        </form>
+
+        <!-- Wellness History Table -->
+        <div class="wellness-history">
+            <h2>Previous Wellness Data</h2>
+            <table id="wellness-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Steps</th>
+                        <th>Heart Rate</th>
+                        <th>Sleep Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Wellness Data will be dynamically inserted here -->
+                    <tr class="no-data">
+                        <td colspan="4">No data available</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Mock data for demonstration purposes
+        const wellnessData = [
+            { date: '2024-11-01', steps: 8000, heart_rate: 75, sleep_hours: 7.5 },
+            { date: '2024-11-02', steps: 9000, heart_rate: 70, sleep_hours: 8 },
+            { date: '2024-11-03', steps: 7000, heart_rate: 72, sleep_hours: 6.5 }
+        ];
+
+        // Function to render wellness data in the table
+        function renderWellnessData() {
+            const tableBody = document.querySelector('#wellness-table tbody');
+            tableBody.innerHTML = ''; // Clear existing table data
+
+            if (wellnessData.length === 0) {
+                const noDataRow = document.createElement('tr');
+                noDataRow.classList.add('no-data');
+                noDataRow.innerHTML = '<td colspan="4">No data available</td>';
+                tableBody.appendChild(noDataRow);
+            } else {
+                wellnessData.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.date}</td>
+                        <td>${item.steps}</td>
+                        <td>${item.heart_rate}</td>
+                        <td>${item.sleep_hours}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            }
+        }
+
+        // Form submission handler
+        document.querySelector('#wellness-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const steps = document.querySelector('#steps').value;
+            const heartRate = document.querySelector('#heart_rate').value;
+            const sleepHours = document.querySelector('#sleep_hours').value;
+
+            // Mock submission success
+            wellnessData.push({
+                date: new Date().toISOString().split('T')[0],
+                steps: parseInt(steps),
+                heart_rate: parseInt(heartRate),
+                sleep_hours: parseFloat(sleepHours)
+            });
+
+            // Re-render table with new data
+            renderWellnessData();
+
+            // Reset form
+            document.querySelector('#wellness-form').reset();
+        });
+
+        // Initial render of wellness data
+        renderWellnessData();
+    </script>
+
+</body>
+</html>

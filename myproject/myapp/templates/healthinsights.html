@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Insights</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #e8eff5; /* Light Blue */
+            background-size: 100% 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            height: 750px;
+            max-width: 900px;
+            border: 1px solid #3d4c63; /* Dark Slate Blue */
+            box-sizing: border-box;
+            background-color: white;
+            margin-top: 50px;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: #3d4c63; /* Dark Slate Blue */
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            overflow: auto;
+        }
+
+        .card-container1 {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            height: 150px;
+            width: 200px;
+            padding: 20px;
+            text-align: center;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #3d4c63; /* Dark Slate Blue */
+            background-color: #486381; /* Blue-Gray */
+        }
+
+        .card h2 {
+            font-size: 20px;
+            color: #ffffff; /* White */
+        }
+
+        .beds {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .bed {
+            height: 50px;
+            width: 50px;
+            background-color: #3d4c63; /* Dark Slate Blue */
+            text-align: center;
+            font-size: 30px;
+            color: #ffffff; /* White */
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        .beds-availability {
+            text-align: center;
+            margin-top: 30px;
+            color: #333333; /* Dark Gray */
+        }
+
+        .card-container1 .card {
+            background-color: #2b394d; /* Darker Slate Blue */
+        }
+
+        .beds-availability h2 {
+            color: #5b5b5b; /* Medium Gray */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Health Insights</h1>
+
+        <div class="card-container">
+            <div class="card">
+                <h2>Recovered</h2>
+                <h2>{{ recovered }}</h2>
+            </div>
+            <div class="card">
+                <h2>Admitted</h2>
+                <h2>{{ admitted }}</h2>
+            </div>
+            <div class="card">
+                <h2>Deceased</h2>
+                <h2>{{ deceased }}</h2>
+            </div>
+        </div>
+
+        <div class="card-container1">
+            <div class="card">
+                <h2>Doctors Availability</h2>
+                <h2>{{ doctorsavailable }}</h2>
+            </div>
+            <div class="card">
+                <h2>Beds Availability</h2>
+                <h2>{{ bedsavailability }}</h2>
+            </div>
+            <div class="card">
+                <h2>Ventilators Availability</h2>
+                <h2>{{ ventilator }}</h2>
+            </div>
+        </div>
+
+        <div class="beds-availability">
+            <h2>Beds Availability</h2>
+            <div class="beds">
+                <div class="bed">1</div>
+                <div class="bed">2</div>
+                <div class="bed">3</div>
+                <div class="bed">4</div>
+                <div class="bed">5</div>
+                <div class="bed">6</div>
+                <div class="bed">7</div>
+                <div class="bed">8</div>
+                <div class="bed">9</div>
+                <div class="bed">10</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

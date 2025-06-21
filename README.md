@@ -38,6 +38,7 @@ The **Smart Health and Wellness Monitoring System** is an intuitive and scalable
 
 ---
 🧠 Use Cases
+
 🏠 Individual Health Management
 
 🏥 Hospital Patient Record System

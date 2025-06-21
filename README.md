@@ -49,11 +49,15 @@ The **Smart Health and Wellness Monitoring System** is an intuitive and scalable
 
 🧘 Wellness Centers & Fitness Clubs
 
+
 📄 License
 This project is licensed under the MIT License
 © 2025 Abhinav Reddy
 
+
 🙋‍♂️ Author
 Abhinav Reddy
+
 📬 Email: abhinavreddy2307@gmail.com
+
 🔗 GitHub: RavulaAbhinavReddy
